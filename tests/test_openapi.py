@@ -22,7 +22,7 @@ pytestmark = pytest.mark.anyio
 setatt_object = object.__setattr__
 
 
-class User(AbstractUser):
+class HubUser(AbstractUser):
     class Meta:
         registry = models
 
@@ -32,11 +32,11 @@ class BackendAuthentication(SimpleBackend):
         """Authenticates a user and returns a JWT string"""
 
         try:
-            user: User = await User.query.get(email=self.email)
+            user: HubUser = await HubUser.query.get(email=self.email)
         except ObjectNotFound:
             # Run the default password hasher once to reduce the timing
             # difference between an existing and a nonexistent user.
-            await User().set_password(self.password)
+            await HubUser().set_password(self.password)
         else:
             is_password_valid = await user.check_password(self.password)
             if is_password_valid and self.user_can_authenticate(user):
@@ -70,7 +70,9 @@ class BackendAuthentication(SimpleBackend):
         """
         return getattr(user, "is_active", True)
 
-    def generate_user_token(self, user: User, token_type: str, time: datetime = None):
+    def generate_user_token(
+        self, user: HubUser, token_type: str, time: datetime = None
+    ):
         """
         Generates the JWT token for the authenticated user.
         """
