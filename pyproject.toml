@@ -1,0 +1,159 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lilya_simple_jwt"
+description = "The Simple JWT integration with Esmerald"
+long_description = "The Simple JWT integration with Esmerald"
+readme = "README.md"
+requires-python = ">=3.10"
+dynamic = ['version']
+authors = [{ name = "Tiago Silva", email = "tiago.silva@dymmond.com" }]
+classifiers = [
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: AsyncIO",
+    "Framework :: AnyIO",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = ["lilya>=0.18.1", "PyJWT>=2.10.1"]
+keywords = [
+    "lilya-simple-jwt",
+    "jwt",
+    "authentication",
+    "python",
+    "esmerald",
+    "starlette",
+    "lilya",
+]
+
+[project.urls]
+Homepage = "https://github.com/dymmond/lilya-simple-jwt"
+Documentation = "https://lilya-simple-jwt.dymmond.com"
+Changelog = "https://lilya-simple-jwt.dymmond.com/release-notes/"
+Funding = "https://github.com/sponsors/tarsil"
+Source = "https://github.com/dymmond/lilya-simple-jwt"
+
+[project.optional-dependencies]
+test = [
+    "autoflake>=2.0.2,<3.0.0",
+    "black>=23.3.0,<24.0.0",
+    "edgy[postgres,testing]>=0.27.3",
+    "httpx",
+    "isort>=5.12.0,<6.0.0",
+    "mypy>=1.16.1,<2.0.0",
+    "pytest>=7.2.2,<8.0.0",
+    "pytest-asyncio>=0.20.0",
+    "pytest-cov>=4.0.0,<5.0.0",
+    "httpx",
+    "ruff>=0.0.256,<1.0.0",
+]
+
+dev = [
+    "anyio>=3.7.1,<5.0.0",
+    "ipdb>=0.13.13,<1.0.0",
+    "pre-commit>=3.3.1,<4.0.0",
+    "devtools>=0.12.2",
+]
+
+doc = [
+    "griffe-typingdoc>=0.2.2,<1.0",
+    "mkautodoc>=0.2.0,<0.3.0",
+    "mkdocs>=1.1.2,<2.0.0",
+    "mkdocs-material>=9.4.4,<10.0.0",
+    "mdx-include>=1.4.2,<2.0.0",
+    "mkdocs-markdownextradata-plugin>=0.2.5,<0.3.0",
+    "mkdocs-meta-descriptions-plugin>=2.3.0",
+    "mkdocstrings[python]>=0.23.0,<0.30.0",
+    "pyyaml>=6.0,<7.0.0",
+]
+
+[tool.hatch.version]
+path = "lilya_simple_jwt/__init__.py"
+
+[tool.isort]
+profile = "black"
+known_third_party = []
+src_paths = ["lilya_simple_jwt"]
+
+[tool.mypy]
+strict = true
+warn_unused_configs = true
+warn_unreachable = true
+warn_return_any = true
+disallow_untyped_decorators = true
+disallow_any_generics = false
+implicit_reexport = false
+show_error_codes = true
+disallow_incomplete_defs = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+no_implicit_optional = false
+strict_equality = false
+strict_optional = false
+disable_error_code = "attr-defined,has-type,override,call-arg"
+
+
+[tool.ruff]
+select = [
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "F", # pyflakes
+    "C", # flake8-comprehensions
+    "B", # flake8-bugbear
+]
+ignore = [
+    "E501", # line too long, handled by black
+    "B008", # do not perform function calls in argument defaults
+    "C901", # too complex
+]
+
+exclude = ["docs_src/"]
+
+[tool.coverage.run]
+parallel = true
+context = '${CONTEXT}'
+source = ["tests", "lilya_simple_jwt"]
+# omit = []
+
+[[tool.mypy.overrides]]
+module = "lilya_simple_jwt.tests.*"
+ignore_missing_imports = true
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = ["passlib.*"]
+ignore_missing_imports = true
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = "docs_src.*"
+ignore_errors = true
+
+[tool.pytest.ini_options]
+addopts = ["--strict-config", "--strict-markers"]
+xfail_strict = true
+junit_family = "xunit2"
+
+[tool.hatch.build.targets.sdist]
+include = ["/lilya_simple_jwt"]
