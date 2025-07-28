@@ -2,12 +2,12 @@ from abc import ABC
 from datetime import datetime
 from typing import Any, Dict, Union
 
-from lilya.conf import settings
-from lilya_simple_jwt.exceptions import AuthenticationError
-from lilya.exceptions import NotAuthorized
 from jwt.exceptions import PyJWTError
+from lilya.conf import _monkay
+from lilya.exceptions import NotAuthorized
 from pydantic import BaseModel, EmailStr
 
+from lilya_simple_jwt.exceptions import AuthenticationError
 from lilya_simple_jwt.schemas import AccessToken, RefreshToken
 from lilya_simple_jwt.token import Token
 
@@ -70,27 +70,27 @@ class RefreshAuthentication(BaseRefreshAuthentication):
         try:
             token = Token.decode(
                 token=token,
-                key=settings.simple_jwt.signing_key,
-                algorithms=[settings.simple_jwt.algorithm],
+                key=_monkay.settings.simple_jwt.signing_key,
+                algorithms=[_monkay.settings.simple_jwt.algorithm],
             )  # type: ignore
         except PyJWTError as e:
             raise AuthenticationError(str(e)) from e
 
-        if token.token_type != settings.simple_jwt.refresh_token_name:
+        if token.token_type != _monkay.settings.simple_jwt.refresh_token_name:
             raise NotAuthorized(detail="Only refresh tokens are allowed.")
 
         # Apply the maximum living time
-        expiry_date = datetime.now() + settings.simple_jwt.access_token_lifetime
+        expiry_date = datetime.now() + _monkay.settings.simple_jwt.access_token_lifetime
 
         # New token object
         new_token = Token(sub=token.sub, exp=expiry_date)
 
-        claims_extra = {"token_type": settings.simple_jwt.access_token_name}
+        claims_extra = {"token_type": _monkay.settings.simple_jwt.access_token_name}
 
         # Encode the token
         access_token = new_token.encode(
-            key=settings.simple_jwt.signing_key,
-            algorithm=settings.simple_jwt.algorithm,
+            key=_monkay.settings.simple_jwt.signing_key,
+            algorithm=_monkay.settings.simple_jwt.algorithm,
             claims_extra=claims_extra,
         )
 

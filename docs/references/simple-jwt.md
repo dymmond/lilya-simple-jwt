@@ -1,3 +1,3 @@
 # `SimpleJWT` class
 
-::: esmerald_simple_jwt.config.SimpleJWT
+::: lilya_simple_jwt.config.SimpleJWT

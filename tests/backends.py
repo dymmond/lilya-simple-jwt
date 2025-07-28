@@ -1,10 +1,10 @@
 from datetime import datetime
-from typing import Any, Dict
+from typing import Any
 
 from edgy.exceptions import ObjectNotFound
-from esmerald.conf import settings
-from esmerald.exceptions import NotAuthorized
-from esmerald.utils.module_loading import import_string
+from lilya._internal._module_loading import import_string
+from lilya.conf import settings
+from lilya.exceptions import NotAuthorized
 
 from lilya_simple_jwt.backends import BackendEmailAuthentication
 from lilya_simple_jwt.schemas import TokenAccess
@@ -14,7 +14,7 @@ User = import_string("tests.models.User")
 
 
 class EmailBackendAuth(BackendEmailAuthentication):
-    async def authenticate(self) -> Dict[str, str] | Any:
+    async def authenticate(self) -> dict[str, str] | Any:
         """Authenticates a user and returns a JWT string"""
         try:
             user: User = await User.objects.get(email=self.email)

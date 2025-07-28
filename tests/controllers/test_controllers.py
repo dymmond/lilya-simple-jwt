@@ -4,11 +4,12 @@ from typing import AsyncGenerator
 import pytest
 from anyio import from_thread, sleep
 from edgy.exceptions import ObjectNotFound
-from esmerald import Esmerald, Include
-from esmerald.conf import settings
 from esmerald.contrib.auth.edgy.base_user import AbstractUser
-from esmerald.exceptions import NotAuthorized
 from httpx import ASGITransport, AsyncClient
+from lilya.apps import Lilya
+from lilya.conf import settings
+from lilya.exceptions import NotAuthorized
+from lilya.routing import Include
 from tests.settings import TestSettings
 
 from lilya_simple_jwt.backends import BackendEmailAuthentication as SimpleBackend
@@ -99,7 +100,7 @@ class ViewSettings(TestSettings):
 
 @pytest.fixture
 def app():
-    return Esmerald(
+    return Lilya(
         routes=[Include(path="/simple-jwt", namespace="lilya_simple_jwt.urls")],
         settings_module=ViewSettings,
     )
@@ -151,6 +152,7 @@ async def test_return_token(async_client):
     user = await create_user()
 
     data = {"email": user.email, "password": "12345"}
+
     response = await async_client.post("/simple-jwt/signin", json=data)
 
     assert "access_token" in response.json()

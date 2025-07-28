@@ -1,13 +1,12 @@
-from typing_extensions import Annotated, Doc
-
 from datetime import datetime, timezone
-from typing import Any, Optional, Union
+from typing import Any, Optional
 
 import jwt
 from jwt.exceptions import PyJWTError
-from pydantic import BaseModel, Field, conint, constr, field_validator
-
 from lilya.exceptions import ImproperlyConfigured
+from pydantic import BaseModel, Field, conint, constr, field_validator
+from typing_extensions import Annotated, Doc
+
 from lilya_simple_jwt.utils import convert_time
 
 
@@ -74,8 +73,8 @@ class BaseToken(BaseModel):
 
     @classmethod
     def decode(
-        cls, token: str, key: str | bytes| jwt.PyJWK, algorithms: list[str], **kwargs: Any
-    ) -> "Token":  # pragma: no cover
+        cls, token: str, key: str | bytes | jwt.PyJWK, algorithms: list[str], **kwargs: Any
+    ) -> "BaseToken":  # pragma: no cover
         """
         Decodes the given token.
         """
@@ -88,16 +87,11 @@ class BaseToken(BaseModel):
         return cls(**data)
 
 
-
 class Token(BaseToken):
     """
     Token implementation with an extra field
     `token_type`. This attribute will allow
-    the distinction of the type of token being generated.
-
-    This token is an extension of the `esmerald.security.jwt.Token` object
-    and adds some extras that are used by the default Refresh backend provided
-    by the package.
+    the distinction of type token being generated.
 
     !!! Note
         You are not entitled to use this object at all in your backends but if you

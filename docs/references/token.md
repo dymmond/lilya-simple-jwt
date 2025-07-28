@@ -1,3 +1,3 @@
 # `Token` class
 
-::: esmerald_simple_jwt.token.Token
+::: lilya_simple_jwt.token.Token

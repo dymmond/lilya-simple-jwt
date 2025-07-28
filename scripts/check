@@ -6,9 +6,9 @@ if [ "$VIRTUAL_ENV" != '' ]; then
 elif [ -d 'venv' ] ; then
     export PREFIX="venv/bin/"
 fi
-export SOURCE_FILES="esmerald_simple_jwt tests"
+export SOURCE_FILES="lilya_simple_jwt tests"
 export EXCLUDE=__init__.py
-export MAIN="esmerald_simple_jwt"
+export MAIN="lilya_simple_jwt"
 
 set -x
 

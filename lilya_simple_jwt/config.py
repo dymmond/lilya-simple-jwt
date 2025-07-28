@@ -1,13 +1,11 @@
-from typing import Any
-
-from lilya_simple_jwt.backends import BaseBackendAuthentication, BaseRefreshAuthentication
-from lilya_simple_jwt.schemas import AccessToken, LoginEmailIn, RefreshToken, TokenAccess
-
 from datetime import datetime, timedelta
-from typing import Union
+from typing import Any, Union
 
 from pydantic import BaseModel
 from typing_extensions import Annotated, Doc
+
+from lilya_simple_jwt.backends import BaseBackendAuthentication, BaseRefreshAuthentication
+from lilya_simple_jwt.schemas import AccessToken, LoginEmailIn, RefreshToken, TokenAccess
 
 
 class JWTConfig(BaseModel):
@@ -141,7 +139,6 @@ class JWTConfig(BaseModel):
     ] = "refresh_token"
 
 
-
 class SimpleJWT(JWTConfig):
     backend_authentication: Annotated[
         type[BaseBackendAuthentication],
@@ -247,7 +244,7 @@ class SimpleJWT(JWTConfig):
             """
             OpenAPI tags to be displayed on each view provided by Lilya Simple JWT.
 
-            These will be common to both views.
+            These will be common to both controllers.
             """
         ),
     ] = None

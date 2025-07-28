@@ -5,7 +5,7 @@ about: Please only raise an issue if you've been advised to do so after discussi
 
 The starting point for issues should usually be a discussion...
 
-https://github.com/dymmond/esmerald_simple_jwt/discussions
+https://github.com/dymmond/lilya_simple_jwt/discussions
 
 Potential bugs may be raised as a "Potential Issue" discussion. The feature requests may be raised as an
 "Ideas" discussion.
@@ -15,7 +15,7 @@ We can then decide if the discussion needs to be escalated into an "Issue" or no
 This will make sure that everything is organised properly.
 ---
 
-**esmerald_simple_jwt version**:
+**lilya_simple_jwt version**:
 **Python version**:
 **OS**:
 **Platform**:

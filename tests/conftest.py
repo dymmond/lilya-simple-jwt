@@ -1,7 +1,8 @@
 import pytest
-from esmerald import Esmerald, Include
-from esmerald.conf import settings
-from esmerald.testclient import EsmeraldTestClient
+from lilya.apps import Lilya
+from lilya.conf import settings
+from lilya.routing import Include
+from lilya.testclient import TestClient
 
 database, models = settings.edgy_registry
 
@@ -14,13 +15,13 @@ def create_app():
         ignore_preload_import_errors=False,
         onetime=False,
     )
-    app = Esmerald(routes=[Include(path="/simple-jwt", namespace="lilya_simple_jwt.urls")])
+    app = Lilya(routes=[Include(path="/simple-jwt", namespace="lilya_simple_jwt.urls")])
     monkay.set_instance(Instance(registry=app.settings.registry, app=app))
     return app
 
 
 def get_client():
-    return EsmeraldTestClient(create_app())
+    return TestClient(create_app())
 
 
 @pytest.fixture(scope="module")

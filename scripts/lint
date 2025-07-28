@@ -7,7 +7,7 @@ elif [ -d 'venv' ] ; then
     export PREFIX="venv/bin/"
 fi
 
-export SOURCE_FILES="esmerald_simple_jwt tests"
+export SOURCE_FILES="lilya_simple_jwt tests"
 set -x
 
 ${PREFIX}ruff check $SOURCE_FILES --fix --line-length 99
