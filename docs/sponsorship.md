@@ -1,28 +1,23 @@
-# Help Esmerald Simple JWT
+# Help Lilya Simple JWT
 
-Do you like **Esmerald Simple JWT** and would like to help Esmerald Simple JWT, other user and the author?
+Do you like **Lilya Simple JWT** and would like to help Lilya Simple JWT, other user and the author?
 
-## 🐦 Follow Esmerald Simple JWT on Twitter
+## ⭐ Star **Lilya Simple JWT** on GitHub
 
-
-## ⭐ Star **Esmerald Simple JWT** on GitHub
-
-Giving a star to Esmerald Simple JWT is very simple and helps promoting the work across the developers around the world.
+Giving a star to Lilya Simple JWT is very simple and helps promoting the work across the developers around the world.
 
 The button is located at the top right.
 
-[https://github.com/dymmond/esmerald-simple-jwt](https://github.com/dymmond/esmerald-simple-jwt).
+[https://github.com/dymmond/lilya-simple-jwt](https://github.com/dymmond/lilya-simple-jwt).
 
 This will help spreading the word about the tool and how helpful has been.
 
 ## 👀 Follow the GitHub repo
 
-Following the GitHub repo will allow you to "watch" for any new release of Esmerald Simple JWT and be always up to date.
+Following the GitHub repo will allow you to "watch" for any new release of Lilya Simple JWT and be always up to date.
 
 You can click on "***watch***" and select "***custom***" -> "***Releases***"or any other you may find particular
 interesting to you.
-
-## 💬 Join the official Esmerald Simple JWT discord channel
 
 ## 🔥 Sponsor the author
 

@@ -1,23 +1,23 @@
 # Contributing
 
-Thank you for showing interes in contributing to Esmerald Simple JWT. There are many ways you can help and contribute to the
+Thank you for showing interes in contributing to Lilya Simple JWT. There are many ways you can help and contribute to the
 project.
 
-* Try Esmerald Simple JWT and [report bugs and issues](https://github.com/dymmond/esmerald-simple-jwt/issues/new) you find.
-* [Implement new features](https://github.com/dymmond/esmerald-simple-jwt/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
-* Help othes by [reviewing pull requests](https://github.com/dymmond/esmerald-simple-jwt/pulls)
+* Try Lilya Simple JWT and [report bugs and issues](https://github.com/dymmond/lilya-simple-jwt/issues/new) you find.
+* [Implement new features](https://github.com/dymmond/lilya-simple-jwt/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+* Help othes by [reviewing pull requests](https://github.com/dymmond/lilya-simple-jwt/pulls)
 * Help writting documentation
 * Use the discussions and actively participate on them.
-* Become an contributor by helping Esmerald Simple JWT growing and spread the words across small, medium, large or any company
+* Become an contributor by helping Lilya Simple JWT growing and spread the words across small, medium, large or any company
 size.
 
 ## Reporting possible bugs and issues
 
-It is natural that you might find something that Esmerald Simple JWT should support or even experience some sorte of unexpected
+It is natural that you might find something that Lilya Simple JWT should support or even experience some sorte of unexpected
 behaviour that needs addressing.
 
 The way we love doing things is very simple, contributions should start out with a
-[discussion](https://github.com/dymmond/esmerald-simple-jwt/discussions). The potential bugs shall be raised as "Potential Issue"
+[discussion](https://github.com/dymmond/lilya-simple-jwt/discussions). The potential bugs shall be raised as "Potential Issue"
 in the discussions, the feature requests may be raised as "Ideas".
 
 We can then decide if the discussion needs to be escalated into an "Issue" or not.
@@ -37,18 +37,18 @@ it clear to understand and get the required help.
 
 ## Development
 
-To develop for Esmerald Simple JWT, create a fork of the [Esmerald Simple JWT repository](https://github.com/dymmond/esmerald-simple-jwt) on GitHub.
+To develop for Lilya Simple JWT, create a fork of the [Lilya Simple JWT repository](https://github.com/dymmond/lilya-simple-jwt) on GitHub.
 
 After, clone your fork with the follow command replacing `YOUR-USERNAME` wih your GitHub username:
 
 ```shell
-$ git clone https://github.com/YOUR-USERNAME/esmerald-simple-jwt
+$ git clone https://github.com/YOUR-USERNAME/lilya-simple-jwt
 ```
 
 ### Install the project dependencies
 
 ```shell
-$ cd esmerald-simple-jwt
+$ cd lilya-simple-jwt
 $ scripts/install
 ```
 
@@ -68,7 +68,7 @@ To run the tests, use:
 $ scripts/test
 ```
 
-Because Esmerald Simple JWT uses pytest, any additional arguments will be passed. More info within the
+Because Lilya Simple JWT uses pytest, any additional arguments will be passed. More info within the
 [pytest documentation](https://docs.pytest.org/en/latest/how-to/usage.html)
 
 To run the linting, use:
@@ -79,7 +79,7 @@ $ scripts/lint
 
 ### Documentation
 
-Improving the documentation is quite easy and it is placed inside the `esmerald-simple-jwt/docs` folder.
+Improving the documentation is quite easy and it is placed inside the `lilya-simple-jwt/docs` folder.
 
 To start the docs, run:
 
@@ -87,7 +87,7 @@ To start the docs, run:
 $ scripts/docs
 ```
 
-## Building Esmerald Simple JWT
+## Building Lilya Simple JWT
 
 To build a package locally, run:
 
@@ -105,15 +105,15 @@ It will install the requirements and create a local build in your virtual enviro
 
 ## Releasing
 
-*This section is for the maintainers of `Esmerald Simple JWT`*.
+*This section is for the maintainers of `Lilya Simple JWT`*.
 
-### Building the Esmerald Simple JWT for release
+### Building the Lilya Simple JWT for release
 
 Before releasing a new package into production some considerations need to be taken into account.
 
 * **Changelog**
     * Like many projects, we follow the format from [keepchangelog](https://keepachangelog.com/en/1.0.0/).
-    * [Compare](https://github.com/dymmond/esmerald-simple-jwt/compare/) `main` with the release tag and list of the entries
+    * [Compare](https://github.com/dymmond/lilya-simple-jwt/compare/) `main` with the release tag and list of the entries
 that are of interest to the users of the framework.
         * What **must** go in the changelog? added, changed, removed or deprecated features and the bug fixes.
         * What is **should not go** in the changelog? Documentation changes, tests or anything not specified in the
@@ -126,7 +126,7 @@ point above.
 
 #### Releasing
 
-Once the `release` PR is merged, create a new [release](https://github.com/dymmond/esmerald-simple-jwt/releases/new)
+Once the `release` PR is merged, create a new [release](https://github.com/dymmond/lilya-simple-jwt/releases/new)
 that includes:
 
 Example:

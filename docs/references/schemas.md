@@ -1,6 +1,6 @@
 # Schemas
 
-All the schemas available via Esmerald Simple JWT and used accross the package.
+All the schemas available via Lilya Simple JWT and used accross the package.
 
 ::: lilya_simple_jwt.schemas.AccessToken
 

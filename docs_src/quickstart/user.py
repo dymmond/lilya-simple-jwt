@@ -1,6 +1,4 @@
-from datetime import datetime
-
-from esmerald.conf import settings
+from lilya.conf import settings
 from esmerald.contrib.auth.edgy.base_user import AbstractUser
 
 # These configurations are loaded

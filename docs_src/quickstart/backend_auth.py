@@ -1,10 +1,10 @@
 from datetime import datetime
 
 from edgy.exceptions import ObjectNotFound
-from esmerald.conf import settings
-from esmerald.exceptions import NotAuthorized
-from esmerald.utils.module_loading import import_string
 
+from lilya.conf import settings
+from lilya.exceptions import NotAuthorized
+from lilya._internal._module_loading import import_string
 from lilya_simple_jwt.backends import BackendEmailAuthentication as SimpleBackend
 from lilya_simple_jwt.schemas import TokenAccess
 from lilya_simple_jwt.token import Token

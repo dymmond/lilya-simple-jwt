@@ -1,6 +1,6 @@
 # Backends
 
-The backends of Esmerald Simple JWT are what makes the Esmerald Simple JWT working properly.
+The backends of Lilya Simple JWT are what makes the Lilya Simple JWT working properly.
 
 A backend is what processes the information that will originate and create the tokens for the
 views of the package.
@@ -14,7 +14,7 @@ These backends **must** be implemented at your own needs since this package is d
 For example, it can be used with [Edgy](https://edgy.tarsild.io), [Saffier](https://saffier.tarsild.io),
 [Mongoz](https://mongoz.tarsild.io) or any other database at your choice.
 
-Esmerald Simple JWT when it comes to the [backend_refresh](#backend-refresh), already provides one
+Lilya Simple JWT when it comes to the [backend_refresh](#backend-refresh), already provides one
 almost generic that can be used almost out of the box if you use the default [Token](./token.md) from
 the package but **this can also be designed at your choice and you are not forced to use it**.
 
@@ -100,6 +100,10 @@ the `access_token` and `refresh_token`.
 ```python title="myapp/apps/accounts/backends.py"
 {!> ../docs_src/quickstart/backend_auth.py !}
 ```
+
+!!! Note
+    Lilya does not rely on Esmerald, in fact, its the other way around, we simply use its contrib for this examples because
+    its already plugged, working and tested. Nothing else.
 
 ## Backend Refresh
 

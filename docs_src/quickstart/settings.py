@@ -1,20 +1,23 @@
 import os
 from functools import cached_property
-from typing import Optional, Tuple
+from typing import Tuple
 
 from accounts.backends import BackendAuthentication, RefreshAuthentication
 from edgy import Database, Registry
-from esmerald import EsmeraldAPISettings
+from lilya.conf.global_settings import Settings
 
 from lilya_simple_jwt.config import SimpleJWT
 
 DATABASE_URL = os.environ.get("DATABASE_URI", "sqlite:///db.sqlite")
 
 
-class AppSettings(EsmeraldAPISettings):
+class AppSettings(Settings):
     """
     The settings object for the application.
     """
+    enable_openapi: bool = True
+    infer_body: bool = True
+    secret_key: str = os.environ.get("SECRET_KEY") or "your-secret-key"
 
     @cached_property
     def db_connection(self) -> Tuple[Database, Registry]:

@@ -1,6 +1,6 @@
-site_name: Esmerald Simple JWT
+site_name: Lilya Simple JWT
 site_description: The Simple JWT integration with Esmerald.
-site_url: https://esmerald-simple-jwt.dymmond.com
+site_url: https://lilya-simple-jwt.dymmond.com
 
 theme:
   name: "material"
@@ -22,15 +22,15 @@ theme:
         icon: material/lightbulb-outline
         name: Switch to light mode
   favicon: statics/images/favicon.ico
-  logo: statics/images/logo-white.svg
+  logo: statics/images/logo-white.png
   features:
     - search.suggest
     - search.highlight
     - content.tabs.link
     - content.code.copy
 
-repo_name: dymmond/esmerald-simple-jwt
-repo_url: https://github.com/dymmond/esmerald-simple-jwt
+repo_name: dymmond/lilya-simple-jwt
+repo_url: https://github.com/dymmond/lilya-simple-jwt
 edit_uri: ""
 plugins:
   - search
@@ -51,7 +51,7 @@ plugins:
               - griffe_typingdoc
             show_root_heading: true
             show_if_no_docstring: true
-            preload_modules: [httpx, starlette]
+            preload_modules: [httpx, lilya]
             inherited_members: true
             members_order: source
             separate_signature: true
@@ -68,17 +68,16 @@ nav:
   - Backends: "backends.md"
   - SimpleJWT: "simple-jwt.md"
   - Schemas: "schemas.md"
-  - Pluggable: "pluggable.md"
   - Token: "token.md"
   - API Reference:
       - "references/index.md"
       - SimpleJWT: "references/simple-jwt.md"
       - Schemas: "references/schemas.md"
-      - Pluggable: "references/pluggable.md"
       - Token: "references/token.md"
   - Contributing: "contributing.md"
   - Sponsorship: "sponsorship.md"
   - Release Notes: "release-notes.md"
+
 markdown_extensions:
   - toc:
       permalink: true

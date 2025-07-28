@@ -22,11 +22,11 @@ An example how to create a different type of `Token` object with different param
 ```python
 from datetime import datetime, timedelta
 
-from esmerald import settings
-from esmerald.security.jwt import Token as EsmeraldToken
+from lilya.conf import settings
+from lilya_simple_jwt.token import Token as LilyaToken
 
 
-class Token(EsmeraldToken):
+class Token(LilyaToken):
     is_access: bool = False
     is_refresh: bool = False
 

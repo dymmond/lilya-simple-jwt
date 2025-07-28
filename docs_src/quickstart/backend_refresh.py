@@ -1,9 +1,10 @@
 from datetime import datetime
 
-from esmerald.conf import settings
-from esmerald.exceptions import AuthenticationError, NotAuthorized
 from jwt.exceptions import PyJWTError
 
+from lilya.conf import settings
+from lilya.exceptions import NotAuthorized
+from lilya_simple_jwt.exceptions import AuthenticationError
 from lilya_simple_jwt.backends import BaseRefreshAuthentication
 from lilya_simple_jwt.schemas import AccessToken, RefreshToken
 from lilya_simple_jwt.token import Token

@@ -1,7 +1,7 @@
 # SimpleJWT
 
 The SimpleJWT configuration object is the one behind all the magic that makes this package 100%
-configurable and its used inside the Esmerald application.
+configurable and its used inside the Lilya application.
 
 ```python
 {!> ../docs_src/simple_jwt/settings.py !}
