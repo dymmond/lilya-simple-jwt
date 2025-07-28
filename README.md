@@ -5,20 +5,20 @@
 </p>
 
 <p align="center">
-    <em>🚀 Yet another ASGI toolkit that delivers. 🚀</em>
+    <em>A powerful simple JWT integration with Lilya </em>
 </p>
 
 <p align="center">
-<a href="https://github.com/dymmond/lilya/actions/workflows/test-suite.yml/badge.svg?event=push&branch=main" target="_blank">
-    <img src="https://github.com/dymmond/lilya/actions/workflows/test-suite.yml/badge.svg?event=push&branch=main" alt="Test Suite">
+<a href="https://github.com/dymmond/lilya-simple-jwt/actions/workflows/test-suite.yml/badge.svg?event=push&branch=main" target="_blank">
+    <img src="https://github.com/dymmond/lilya-simple-jwt/actions/workflows/test-suite.yml/badge.svg?event=push&branch=main" alt="Test Suite">
 </a>
 
-<a href="https://pypi.org/project/lilya" target="_blank">
-    <img src="https://img.shields.io/pypi/v/lilya?color=%2334D058&label=pypi%20package" alt="Package version">
+<a href="https://pypi.org/project/lilya-simple-jwt" target="_blank">
+    <img src="https://img.shields.io/pypi/v/lilya-simple-jwt?color=%2334D058&label=pypi%20package" alt="Package version">
 </a>
 
-<a href="https://pypi.org/project/lilya" target="_blank">
-    <img src="https://img.shields.io/pypi/pyversions/lilya.svg?color=%2334D058" alt="Supported Python versions">
+<a href="https://pypi.org/project/lilya-simple-jwt" target="_blank">
+    <img src="https://img.shields.io/pypi/pyversions/lilya-simple-jwt.svg?color=%2334D058" alt="Supported Python versions">
 </a>
 </p>
 
