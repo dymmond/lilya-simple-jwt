@@ -3,7 +3,6 @@ from datetime import datetime
 import pytest
 from edgy.exceptions import ObjectNotFound
 from esmerald.contrib.auth.edgy.base_user import AbstractUser
-from lilya import __version__
 from lilya.conf import settings
 from lilya.exceptions import NotAuthorized
 from lilya.routing import Include
@@ -43,9 +42,7 @@ class BackendAuthentication(SimpleBackend):
                 # The lifetime of a token should be short, let us make 5 minutes.
                 # You can use also the access_token_lifetime from the JWT config directly
                 access_time = datetime.now() + settings.simple_jwt.access_token_lifetime
-                refresh_time = (
-                    datetime.now() + settings.simple_jwt.refresh_token_lifetime
-                )
+                refresh_time = datetime.now() + settings.simple_jwt.refresh_token_lifetime
 
                 access_token = TokenAccess(
                     access_token=self.generate_user_token(
@@ -70,9 +67,7 @@ class BackendAuthentication(SimpleBackend):
         """
         return getattr(user, "is_active", True)
 
-    def generate_user_token(
-        self, user: HubUser, token_type: str, time: datetime = None
-    ):
+    def generate_user_token(self, user: HubUser, token_type: str, time: datetime = None):
         """
         Generates the JWT token for the authenticated user.
         """
@@ -117,7 +112,7 @@ def test_openapi():
             "openapi": "3.1.0",
             "info": {
                 "title": "Lilya",
-                "version": __version__,
+                "version": client.app.version,
                 "summary": "Lilya application",
                 "description": "Yet another framework/toolkit that delivers.",
                 "contact": {
@@ -129,9 +124,19 @@ def test_openapi():
             "paths": {
                 "/simple-jwt/signin": {
                     "post": {
-                        "operationId": None,
                         "summary": "Login API and returns a JWT Token.",
                         "security": [{"BearerAuth": []}],
+                        "parameters": [],
+                        "responses": {
+                            "200": {
+                                "description": "Additional response",
+                                "content": {
+                                    "application/json": {
+                                        "schema": {"$ref": "#/components/schemas/TokenAccess"}
+                                    }
+                                },
+                            }
+                        },
                         "requestBody": {
                             "content": {
                                 "application/json": {
@@ -153,26 +158,24 @@ def test_openapi():
                                 }
                             }
                         },
+                    }
+                },
+                "/simple-jwt/refresh-access": {
+                    "post": {
+                        "summary": "Refreshes the access token",
+                        "description": "When a token expires, a new access token must be generated from the refresh token previously provided. The refresh token must be just that, a refresh and it should only return a new access token and nothing else\n    ",
+                        "security": [{"BearerAuth": []}],
+                        "parameters": [],
                         "responses": {
                             "200": {
                                 "description": "Additional response",
                                 "content": {
                                     "application/json": {
-                                        "schema": {
-                                            "$ref": "#/components/schemas/TokenAccess"
-                                        }
+                                        "schema": {"$ref": "#/components/schemas/AccessToken"}
                                     }
                                 },
                             }
                         },
-                    }
-                },
-                "/simple-jwt/refresh-access": {
-                    "post": {
-                        "operationId": None,
-                        "summary": "Refreshes the access token",
-                        "description": "When a token expires, a new access token must be generated from the refresh token previously provided. The refresh token must be just that, a refresh and it should only return a new access token and nothing else\n    ",
-                        "security": [{"BearerAuth": []}],
                         "requestBody": {
                             "content": {
                                 "application/json": {
@@ -190,18 +193,6 @@ def test_openapi():
                                 }
                             }
                         },
-                        "responses": {
-                            "200": {
-                                "description": "Additional response",
-                                "content": {
-                                    "application/json": {
-                                        "schema": {
-                                            "$ref": "#/components/schemas/AccessToken"
-                                        }
-                                    }
-                                },
-                            }
-                        },
                     }
                 },
             },
@@ -210,10 +201,7 @@ def test_openapi():
                     "TokenAccess": {
                         "properties": {
                             "access_token": {"title": "Access Token", "type": "string"},
-                            "refresh_token": {
-                                "title": "Refresh Token",
-                                "type": "string",
-                            },
+                            "refresh_token": {"title": "Refresh Token", "type": "string"},
                         },
                         "required": ["access_token", "refresh_token"],
                         "title": "TokenAccess",
@@ -227,7 +215,8 @@ def test_openapi():
                         "title": "AccessToken",
                         "type": "object",
                     },
-                }
+                },
+                "securitySchemes": {"BearerAuth": []},
             },
             "servers": [{"url": "/"}],
         }

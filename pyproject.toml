@@ -36,7 +36,7 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
     "Topic :: Internet :: WWW/HTTP",
 ]
-dependencies = ["bcrypt>=4.3.0", "lilya>=0.18.1", "PyJWT>=2.10.1"]
+dependencies = ["bcrypt>=4.3.0", "lilya>=0.19.7", "PyJWT>=2.10.1"]
 keywords = [
     "lilya-simple-jwt",
     "jwt",
