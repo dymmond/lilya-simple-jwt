@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "lilya_simple_jwt"
-description = "The Simple JWT integration with Esmerald"
-long_description = "The Simple JWT integration with Esmerald"
+description = "The Simple JWT integration with Lilya"
+long_description = "The Simple JWT integration with Lilya"
 readme = "README.md"
 requires-python = ">=3.10"
 dynamic = ['version']
